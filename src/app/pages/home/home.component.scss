@@ -1,0 +1,33 @@
+a{
+    display: block;
+}
+
+section{
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+    span{
+        font-weight: bold;
+        font-size: x-large;
+    }
+}
+
+h1{
+    position: relative;
+    font-size: 5rem;
+    text-align: center;
+    span{
+        font-size: small;
+        position: absolute;
+        bottom: -10px;
+        right: 9px;
+    }
+}
+
+div{
+    gap:5px;
+}
+
+
+
+

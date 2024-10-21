@@ -1,0 +1,63 @@
+<div id="container">
+    <app-detalle-partida/>
+    <app-tablero/>
+</div>
+<app-modal-fullscreen [mostrar] = "this.mostrarModal()">
+    @switch (estadoAnterior()) {
+        @case ("ESPERANDO_COMPAÑERO") {
+            <h2 primario>Esperando Compañero</h2>
+        }
+        @case ("VICTORIA_P1") {
+            <h2 primario>Ganó {{salaService.jugador1().nombre}}</h2>
+        }
+        @case ("VICTORIA_P2") {
+            <h2 primario>Ganó {{salaService.jugador2().nombre}}</h2>
+        }
+        @case ("VICTORIA_FINAL_P1") {
+            <h2 primario>Ganó {{salaService.jugador1().nombre}} todas las rondas</h2>
+        }
+        @case ("VICTORIA_FINAL_P2") {
+            <h2 primario>Ganó {{salaService.jugador2().nombre}} todas las rondas</h2>
+        }
+        @case ("ABANDONADO") {
+            <h2 primario>Jugador {{salaService.jugador2().nombre}} abandono la sala</h2>
+        }
+    }
+    @switch (estadoAnterior()) {
+        @case ("ESPERANDO_COMPAÑERO") {
+            <img secundario src="img/3-dots-scale-middle.svg">
+        }
+        @case ("VICTORIA_P1") {
+            <button secundario (click)="nuevaRonda()" class="boton">Próxima ronda</button>
+        }
+        @case ("VICTORIA_P2") {
+            <button secundario (click)="nuevaRonda()" class="boton">Próxima ronda</button>
+        }
+        @case ("VICTORIA_FINAL_P1") {
+            <button secundario (click)="nuevaRonda()" class="boton">Nueva partida</button>
+        }
+        @case ("VICTORIA_FINAL_P2") {
+            <button secundario (click)="nuevaRonda()" class="boton">Nueva partida</button>
+        }
+        @case ("ABANDONADO") {
+            <a [routerLink]="['/']" secundario class="boton">Volver al Inicio</a>
+        }
+    }
+   
+       
+    @if(!salaService.publica() && this.estadoAnterior() === "ESPERANDO_COMPAÑERO"){
+        <div pie id = "pie">
+          <p>Copiá el link para invitar a un amigo
+            <button id="boton-copiar">
+                <img (click)="copiarLink()" src="img/copy.svg" alt="Copiar link">
+            </button>
+                @if(linkCopiado()){
+                    <span>✓</span>
+                }
+            </p>
+        </div>
+      }
+        
+    
+</app-modal-fullscreen>
+
