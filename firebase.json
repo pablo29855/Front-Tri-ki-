@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "dist/ta-te-ti-en-vivo/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}
