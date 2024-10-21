@@ -3,7 +3,7 @@
     <form (ngSubmit)="cambiarNombreYVolver(nombre.value)" #form = "ngForm" class="flex-column">
         <label for = "nombre" class="italic">INGRESA NOMBRE</label>
         <input type = "text" id = "nombre" name="nombre" #nombre required ngModel [placeholder]="usuarioService.nombre()">
-        <button [disabled]="form.invalid" class="boton">Cambiar nombre</button>
+        <button [disabled]="form.invalid" class="boton">Guardar</button>
         <a [routerLink]="['/']" class="boton">Volver</a>
     </form>
 

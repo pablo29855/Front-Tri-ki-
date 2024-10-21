@@ -23,10 +23,11 @@ section{
 
 .marca-jugador{
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     text-align: center;
-    margin: 0 5px;
+    margin: 0px 10px;
+    font-size: 23px;
     &.activo{
         background-color: colors.$accent-1;
         border-radius: 50%;

@@ -22,6 +22,9 @@
         @case ("ABANDONADO") {
             <h2 primario>Jugador {{salaService.jugador2().nombre}} abandono la sala</h2>
         }
+        @case ("EMPATE") {
+            <h2 primario>!EMPATE¡</h2>
+        }
     }
     @switch (estadoAnterior()) {
         @case ("ESPERANDO_COMPAÑERO") {
@@ -42,6 +45,10 @@
         @case ("ABANDONADO") {
             <a [routerLink]="['/']" secundario class="boton">Volver al Inicio</a>
         }
+        @case ("EMPATE") {
+            <button secundario (click)="nuevaRonda()" class="boton">Próxima ronda</button>
+        }
+
     }
    
        

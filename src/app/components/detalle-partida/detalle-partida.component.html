@@ -10,7 +10,7 @@
     
     </div>
     <div class="jugador-container">
-        <span class="marca-jugador" [ngClass]="{activo: salaService.estado() === 'TURNO_P2'}">0</span>
+        <span class="marca-jugador" [ngClass]="{activo: salaService.estado() === 'TURNO_P2'}">O</span>
         @if(!salaService.jugador2().nombre){
             <span class="conrazon-container">❤️❤️❤️</span>
         }
